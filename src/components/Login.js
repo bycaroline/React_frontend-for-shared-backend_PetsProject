@@ -11,7 +11,11 @@ const Login = () => {
         e.preventDefault();
         const success = await login(username, password);
         if (success) {
-            navigate('/startsida')
+            // Liten fördröjning för att se till att token sparas
+            setTimeout(() => {
+                navigate('/startsida');
+                console.log('inloggad');
+            }, 100);
         } else {
             alert('Logga in misslyckades')
         }
