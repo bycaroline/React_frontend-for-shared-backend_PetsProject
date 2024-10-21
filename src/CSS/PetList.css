@@ -1,0 +1,67 @@
+/* PetList.css */
+
+.pet-list-container {
+    max-width: 500px; /* Minska maximal bredd för en mer kompakt look */
+    margin: 40px auto; /* Centrera behållaren med marginaler uppe och nere */
+    padding: 20px; /* Inre marginaler */
+    background-color: #f0f0f5; /* Ljus bakgrundsfärg */
+    border-radius: 12px; /* Rundade hörn för en mjukare känsla */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Mörkare skugga för djup */
+}
+
+h2 {
+    text-align: center; /* Centrera rubriken */
+    color: #333; /* Textfärg */
+    font-family: 'Helvetica Neue', sans-serif; /* Modern fontfamilj */
+    margin-bottom: 20px; /* Avstånd under rubriken */
+    font-size: 24px; /* Större rubrikstorlek */
+}
+
+input[type="text"] {
+    width: 100%; /* Gör sökfälten breda */
+    padding: 14px; /* Inre marginaler */
+    border: 1px solid #ddd; /* Grå kantlinje */
+    border-radius: 8px; /* Rundade hörn */
+    font-size: 16px; /* Större textstorlek */
+    margin-bottom: 20px; /* Avstånd under sökfältet */
+    transition: border-color 0.3s; /* Animering av kantlinjens färg */
+}
+
+input[type="text"]:focus {
+    border-color: #007aff; /* Blå kantlinje vid fokus */
+    outline: none; /* Ingen standardfokusram */
+}
+
+ul {
+    list-style-type: none; /* Ingen standardpunktlista */
+    padding: 0; /* Ingen inre marginal */
+}
+
+li {
+    background-color: #fff; /* Vit bakgrund för varje husdjur */
+    border: 1px solid #ddd; /* Grå kantlinje */
+    border-radius: 8px; /* Rundade hörn */
+    padding: 10px; /* Inre marginaler */
+    margin-bottom: 15px; /* Avstånd under varje husdjur */
+    transition: box-shadow 0.3s; /* Animering av skugga */
+}
+
+li:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Skugga vid hover för djup */
+}
+
+.pet-info {
+    display: flex; /* Flexbox för layout */
+    justify-content: space-between; /* Jämna ut innehållet */
+    align-items: center; /* Vertikal centrering */
+}
+
+strong {
+    color: #333; /* Textfärg för namnet */
+    font-size: 18px; /* Större textstorlek för namnet */
+}
+
+span {
+    font-size: 14px; /* Mindre textstorlek för ägarens namn */
+    color: #777; /* Grå textfärg */
+}
