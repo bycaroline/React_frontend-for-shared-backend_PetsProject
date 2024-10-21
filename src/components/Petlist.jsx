@@ -30,7 +30,7 @@ const PetList = () => {
         const ownerPromises = pets.map(async (pet) => {
             if (pet.userId) {
                 try {
-                    const response = await apiService.get(`/api/users/id/${pet.userId}`); // Hämta användare baserat på userId
+                    const response = await apiService.get(`/users/id/${pet.userId}`); // Hämta användare baserat på userId
                     return { userId: pet.userId, username: response.data.username };
                 } catch (error) {
                     console.error(`Error fetching user for pet ${pet.id}`, error);
