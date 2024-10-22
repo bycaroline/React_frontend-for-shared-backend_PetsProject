@@ -15,7 +15,7 @@ class UpdateUserService {
             }
         };
 
-        // Sending a PUT request to update the user
+        // Sending a PUT request to update user
         return axios.put(`${USER_API_BASE_URL}/id/${userId}`, updateUserDto, config);
     }
 }
