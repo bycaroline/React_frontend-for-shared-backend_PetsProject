@@ -1,7 +1,8 @@
 import axios from 'axios'; // Importing axios for HTTP requests
 
 // Base URL for user-related API endpoints
-const USER_API_BASE_URL = 'http://localhost:8080/api/users'; // Change this to the actual base URL if different
+// const USER_API_BASE_URL = 'http://localhost:8080/api/users'; // Change this to the actual base URL if different
+const USER_API_BASE_URL = 'http://husdjursregister1-env.eba-gzkbcjgw.eu-north-1.elasticbeanstalk.com';
 
 class UpdateUserService {
 

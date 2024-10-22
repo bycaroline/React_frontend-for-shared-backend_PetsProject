@@ -1,6 +1,8 @@
 import axios from 'axios'; // Importing axios for making HTTP requests
 
-const PET_API_BASE_URL = 'http://localhost:8080/api/pet';
+// const PET_API_BASE_URL = 'http://localhost:8080/api/pet';
+const PET_API_BASE_URL = 'http://husdjursregister1-env.eba-gzkbcjgw.eu-north-1.elasticbeanstalk.com';
+
 
 class DeletePet {
     // Method to delete a pet by its ID with token

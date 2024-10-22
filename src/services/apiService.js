@@ -1,7 +1,8 @@
 import axios from 'axios';
 
 const apiService = axios.create({
-    baseURL: 'http://localhost:8080/api', // Bas-URL för API:et
+    // baseURL: 'http://localhost:8080/api', // Bas-URL för API:et
+    baseURL: 'http://husdjursregister1-env.eba-gzkbcjgw.eu-north-1.elasticbeanstalk.com/api'
 });
 
 apiService.interceptors.request.use((config) => {
