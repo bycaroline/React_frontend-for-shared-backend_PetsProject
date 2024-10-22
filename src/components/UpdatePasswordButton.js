@@ -1,38 +1,36 @@
-import React, { useState } from 'react'; // Importerar React och useState för state-hantering
-import UpdatePasswordService from '../services/UpdatePasswordService'; // Importerar tjänsten för att uppdatera lösenord
+import React, { useState } from 'react';
+import UpdatePasswordService from '../services/UpdatePasswordService';
 
 const UpdatePasswordButton = () => {
     const [newPassword, setNewPassword] = useState(''); // State för nytt lösenord
     const [confirmPassword, setConfirmPassword] = useState(''); // State för bekräfta nytt lösenord
     const [message, setMessage] = useState(''); // State för att visa meddelande till användaren
 
-    // Funktion som hanterar lösenordsuppdatering
+    // Funktion that handles the update password button
     const handleUpdatePassword = async () => {
-        // Kontrollera om det nya lösenordet och bekräftelsen matchar
-        if (newPassword !== confirmPassword) {
-            setMessage('Lösenorden matchar inte.'); // Visar felmeddelande om lösenorden inte matchar
-            return;
-        }
+        // Hämtar authToken från localStorage
+        const token = localStorage.getItem('authToken');
 
-        // Skapa DTO med nytt lösenord och bekräftat lösenord
+        // Create a DTO for the password
         const passwordDto = {
             newPassword: newPassword,
             confirmPassword: confirmPassword
         };
+        // Kontrollera om det nya lösenordet och bekräftelsen matchar
+        if (newPassword !== confirmPassword) {
+            setMessage('Lösenorden matchar inte.'); // show error message if passwords do not match
+            return;
+        }
 
         try {
-            // Hämtar authToken från localStorage (eller där den är lagrad efter inloggning)
-            const token = localStorage.getItem('authToken');
-
             // Använder tjänsten för att uppdatera lösenordet
             await UpdatePasswordService.updatePassword(passwordDto, token);
 
-            // Återställer formuläret och visar ett lyckat meddelande
+            // show success message if password is updated och reset the input fields
             setMessage('Lösenordet har uppdaterats!');
             setNewPassword('');
             setConfirmPassword('');
         } catch (error) {
-            // Visar ett felmeddelande om något går fel
             setMessage(error.message || 'Något gick fel vid uppdateringen.');
         }
     };
@@ -62,4 +60,5 @@ const UpdatePasswordButton = () => {
     );
 };
 
-export default UpdatePasswordButton;
+export default UpdatePasswordButton; // Exporterar komponenten
+

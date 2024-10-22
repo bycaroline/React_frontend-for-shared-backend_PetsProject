@@ -1,25 +1,25 @@
-import axios from 'axios'; // Importerar axios för att hantera HTTP-begäran
+import axios from 'axios'; // Importing axios for handling HTTP requests
 
-// Bas-URL för API:et som hanterar användaruppdateringar (lösenord)
-const USER_API_BASE_URL = 'http://localhost:8080/api/users/password';
+// Base URL for the API that handles password updates
+const PASSWORD_API_BASE_URL = 'http://localhost:8080/api/users/password'; // Change this to the actual base URL if different
 
 class UpdatePasswordService {
-    // Metod för att uppdatera användarens lösenord
-    async updatePassword(passwordDto, token) {
-        try {
-            // Skickar PUT-begäran till API för att uppdatera lösenordet
-            const response = await axios.put(USER_API_BASE_URL, passwordDto, {
-                headers: {
-                    'Authorization': `Bearer ${token}`, // Skicka token för autentisering
-                    'Content-Type': 'application/json' // Sätta Content-Type som JSON
-                }
-            });
-            return response.data; // Returnerar API-svaret
-        } catch (error) {
-            throw new Error(error.response?.data?.message || 'Något gick fel vid uppdatering av lösenordet');
-        }
+
+    // Method to update the user's password
+    updatePassword(passwordDto, token) {
+        // Configuring headers with the token for authentication
+        const config = {
+            headers: {
+                Authorization: `Bearer ${token}`, // Passing the token in Authorization header
+                'Content-Type': 'application/json' // Setting content type to JSON
+            }
+        };
+
+        // Sending a PUT request to update the password
+        return axios.put(PASSWORD_API_BASE_URL, passwordDto, config);
     }
 }
 
-// Exporterar en instans av UpdatePasswordService för att användas i andra delar av applikationen
-export default new UpdatePasswordService();
+export default new UpdatePasswordService(); // Exporting an instance of UpdatePasswordService for use in other components
+
+
