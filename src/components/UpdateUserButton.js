@@ -1,7 +1,7 @@
 import React, { useState } from 'react'; // Importing React and useState hook
 import UpdateUserService from '../services/UpdateUserService'; // Importing the service for updating users
 
-const UpdateUserComponent = () => {
+const UpdateUserButton = () => {
     const [userId, setUserId] = useState(''); // State to hold the user ID
     const [isAdmin, setIsAdmin] = useState(false); // State to determine if the user is an admin
     const [message, setMessage] = useState(''); // State to hold success or error messages
@@ -55,7 +55,7 @@ const UpdateUserComponent = () => {
     );
 };
 
-export default UpdateUserComponent;
+export default UpdateUserButton;
 
 
 
