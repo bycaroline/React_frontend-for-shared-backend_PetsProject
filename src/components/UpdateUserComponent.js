@@ -9,15 +9,25 @@ const UpdateUserComponent = () => {
     const handleUpdateUser = async () => {
         const token = localStorage.getItem('token'); // Get the token from localStorage
 
+        if (!userId) {
+            setMessage('Användar-ID måste fyllas i.');
+            console.log('Ingen användar-ID ifylld');
+            return;
+        }
+
         // Prepare the DTO (Data Transfer Object) for updating user role
         const updateUserDto = {
             admin: isAdmin // Only include admin status
         };
 
+        console.log(`Uppdaterar användare med ID: ${userId} och admin-status: ${isAdmin}`);
+
         try {
             const response = await UpdateUserService.updateUser(userId, updateUserDto, token); // Pass the token to the service
+            console.log('Uppdatering lyckades', response);
             setMessage('Användaren har uppdaterats'); // Success message if user is updated
         } catch (error) {
+            console.error('Uppdatering misslyckades', error);
             setMessage('Något gick fel'); // Error message if update fails
         }
     };
@@ -28,6 +38,7 @@ const UpdateUserComponent = () => {
             <input
                 type="text"
                 placeholder="Användar-ID"
+                value={userId}
                 onChange={(e) => setUserId(e.target.value)}
             />
             <label>
@@ -44,7 +55,7 @@ const UpdateUserComponent = () => {
     );
 };
 
-export default UpdateUserComponent; // Exporting the UpdateUserComponent
+export default UpdateUserComponent;
 
 
 
