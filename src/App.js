@@ -1,12 +1,9 @@
-import './App.css';
-import React from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
-import StartPage from './pages/StartPage'
+import StartPage from './pages/StartPage';
+import MinProfilTemporary from './pages/MinProfilTemporary';
 import { isAuthenticated } from './services/AuthService';
-import { useEffect } from 'react';
-import { useState } from 'react';
-
 
 function App() {
   const [isAuth, setIsAuth] = useState(false);
@@ -15,12 +12,30 @@ function App() {
     setIsAuth(isAuthenticated());
   }, []);
 
+  let routes;
+
+  if (isAuth) {
+    routes = (
+      <Fragment>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/startsida" element={<StartPage />} />
+        <Route path="/min-profil" element={<MinProfilTemporary />} />
+        <Route path="/*" element={<Navigate to="/startsida" />} />
+      </Fragment>
+    );
+  } else {
+    routes = (
+      <Fragment>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/*" element={<HomePage />} />
+      </Fragment>
+    );
+  }
+
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/startsida" element={isAuth ? <StartPage /> : <Navigate to="/" />} />
-        {/* Startpage här är bara tillfällig, någonstans att landa när loggat in */}
+        {routes}
       </Routes>
     </Router>
   );
