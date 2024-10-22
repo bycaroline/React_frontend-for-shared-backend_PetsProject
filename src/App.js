@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import StartPage from './pages/StartPage';
-import MinProfilTemporary from './pages/MinProfilTemporary';
+import ProfilePage from './pages/ProfilePage';
 import { isAuthenticated } from './services/AuthService';
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
       <Fragment>
         <Route path="/" element={<HomePage />} />
         <Route path="/startsida" element={<StartPage />} />
-        <Route path="/min-profil" element={<MinProfilTemporary />} />
+        <Route path="/min-profil" element={<ProfilePage />} />
         <Route path="/*" element={<Navigate to="/startsida" />} />
       </Fragment>
     );
