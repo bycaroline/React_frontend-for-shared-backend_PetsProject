@@ -1,6 +1,6 @@
 import React from 'react';
 import HeaderAuthenticated from '../components/HeaderAuthenticated';
-import PetList from '../components/PetList';
+import PetList from '../components/Petlist';
 import UserList from '../components/UserList';
 
 const StartPage = () => {
