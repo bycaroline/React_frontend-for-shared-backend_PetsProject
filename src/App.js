@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import HomePage from './pages/HomePage';
 import StartPage from './pages/StartPage';
 import ProfilePage from './pages/ProfilePage';
-import TestPage from './pages/TestPage'; // Importerar TestPage
 import { isAuthenticated } from './services/AuthService';
 
 function App() {
@@ -21,7 +20,6 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/startsida" element={<StartPage />} />
                 <Route path="/min-profil" element={<ProfilePage />} />
-                <Route path="/test" element={<TestPage />} /> {/* Lägg till TestPage */}
                 <Route path="/*" element={<Navigate to="/startsida" />} />
             </Fragment>
         );
