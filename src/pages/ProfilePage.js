@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import HeaderAuthenticated from "../components/HeaderAuthenticated";
 import UpdateUserButton from "../components/UpdateUserButton";
 import DeletePetButton from "../components/DeletePetButton";
+import UpdatePetForm from "../components/UpdatePetForm";
 
 
 const ProfilePage = () => {
@@ -17,6 +18,9 @@ const ProfilePage = () => {
                 </div>
                 <div style={styles.list}>
                     <DeletePetButton />
+                </div>
+                <div style={styles.list}>
+                    <UpdatePetForm />
                 </div>
             </div>
         </div>
