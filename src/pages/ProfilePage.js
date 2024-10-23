@@ -1,19 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from 'react';
 import HeaderAuthenticated from "../components/HeaderAuthenticated";
 import UpdateUserButton from "../components/UpdateUserButton";
 import DeletePetButton from "../components/DeletePetButton";
-
-
+import UpdatePasswordButton from "../components/UpdatePasswordButton";
+import AddPetButton from "../components/AddPetButton";
 const ProfilePage = () => {
     return (
         <div style={styles.container}>
+            {/* Header för autentiserade användare */}
             <div style={styles.headerWrapper}>
                 <HeaderAuthenticated />
             </div>
+
+            {/* Lista över olika alternativ (uppdatera användare, uppdatera lösenord, radera husdjur) */}
             <div style={styles.listContainer}>
                 <div style={styles.list}>
                     <UpdateUserButton />
+                </div>
+                <div style={styles.list}>
+                    <UpdatePasswordButton />
                 </div>
                 <div style={styles.list}>
                     <DeletePetButton />
@@ -22,6 +27,7 @@ const ProfilePage = () => {
         </div>
     );
 };
+
 
 const styles = {
     container: {
