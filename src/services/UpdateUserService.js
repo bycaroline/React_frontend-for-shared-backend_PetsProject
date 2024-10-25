@@ -7,6 +7,9 @@ class UpdateUserService {
 
     // Method to update a user by their ID
     updateUser(userId, updateUserDto, token) {
+        // Logga token för att kontrollera att den hämtas korrekt
+        console.log("Token being used:", token);
+        
         // Configuring headers with the token for authentication
         const config = {
             headers: {

@@ -3,7 +3,8 @@ import HeaderAuthenticated from "../components/HeaderAuthenticated";
 import UpdateUserButton from "../components/UpdateUserButton";
 import DeletePetButton from "../components/DeletePetButton";
 import UpdatePasswordButton from "../components/UpdatePasswordButton";
-import AddPetButton from "../components/AddPetButton";
+import AddPetForm from "../components/AddPetForm";
+
 const ProfilePage = () => {
     return (
         <div style={styles.container}>
@@ -15,13 +16,16 @@ const ProfilePage = () => {
             {/* Lista över olika alternativ (uppdatera användare, uppdatera lösenord, radera husdjur) */}
             <div style={styles.listContainer}>
                 <div style={styles.list}>
-                    <UpdateUserButton />
+                    <UpdateUserButton/>
                 </div>
                 <div style={styles.list}>
-                    <UpdatePasswordButton />
+                    <UpdatePasswordButton/>
                 </div>
                 <div style={styles.list}>
-                    <DeletePetButton />
+                    <DeletePetButton/>
+                </div>
+                <div style={styles.list}>
+                    <AddPetForm/>
                 </div>
             </div>
         </div>
