@@ -40,9 +40,9 @@ const ProfilePage = () => {
                 <div style={styles.sidebar}>
                     <button style={styles.navButton} onClick={openUpdateUserModal}>Uppdatera användare</button>
                     <button style={styles.navButton} onClick={openUpdatePasswordModal}>Uppdatera lösenord</button>
-                    <button style={styles.navButton} onClick={openDeletePetModal}>Ta bort husdjur</button>
                     <button style={styles.navButton} onClick={openAddPetModal}>Lägg till husdjur</button>
-                    <button style={styles.navButton} onClick={openUpdatePetModal}>Uppdatera husdjur</button> {/* Button for updating pet */}
+                    <button style={styles.navButton} onClick={openUpdatePetModal}>Uppdatera husdjur</button>
+                    <button style={styles.navButton} onClick={openDeletePetModal}>Ta bort husdjur</button>
                 </div>
 
                 {/* Huvudinnehåll */}
