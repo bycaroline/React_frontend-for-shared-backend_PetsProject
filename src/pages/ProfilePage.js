@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import HeaderAuthenticated from "../components/HeaderAuthenticated";
+
 import UpdateUserModal from "../components/UpdateUserModal";
 import DeletePetModal from "../components/DeletePetModal";
 import UpdatePasswordModal from "../components/UpdatePasswordModal";
 import AddPetModal from "../components/AddPetModal";
 import pets from '../assets/pets.jpeg';
+
 
 const ProfilePage = () => {
     const [isUpdateUserModalOpen, setIsUpdateUserModalOpen] = useState(false);
@@ -54,6 +56,9 @@ const ProfilePage = () => {
                     <div style={styles.imageContainer}>
                         <img src={pets} alt="Våra husdjur" style={styles.image} />
                     </div>
+                </div>
+                <div style={styles.list}>
+                    <UpdatePetForm />
                 </div>
             </div>
         </div>

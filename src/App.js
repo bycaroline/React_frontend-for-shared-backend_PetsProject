@@ -6,39 +6,39 @@ import ProfilePage from './pages/ProfilePage';
 import { isAuthenticated } from './services/AuthService';
 
 function App() {
-  const [isAuth, setIsAuth] = useState(false);
+    const [isAuth, setIsAuth] = useState(false);
 
-  useEffect(() => {
-    setIsAuth(isAuthenticated());
-  }, []);
+    useEffect(() => {
+        setIsAuth(isAuthenticated());
+    }, []);
 
-  let routes;
+    let routes;
 
-  if (isAuth) {
-    routes = (
-      <Fragment>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/startsida" element={<StartPage />} />
-        <Route path="/min-profil" element={<ProfilePage />} />
-        <Route path="/*" element={<Navigate to="/startsida" />} />
-      </Fragment>
+    if (isAuth) {
+        routes = (
+            <Fragment>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/startsida" element={<StartPage />} />
+                <Route path="/min-profil" element={<ProfilePage />} />
+                <Route path="/*" element={<Navigate to="/startsida" />} />
+            </Fragment>
+        );
+    } else {
+        routes = (
+            <Fragment>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/*" element={<HomePage />} />
+            </Fragment>
+        );
+    }
+
+    return (
+        <Router>
+            <Routes>
+                {routes}
+            </Routes>
+        </Router>
     );
-  } else {
-    routes = (
-      <Fragment>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/*" element={<HomePage />} />
-      </Fragment>
-    );
-  }
-
-  return (
-    <Router>
-      <Routes>
-        {routes}
-      </Routes>
-    </Router>
-  );
 }
 
 export default App;
