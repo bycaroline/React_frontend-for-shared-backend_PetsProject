@@ -5,6 +5,7 @@ import UpdateUserModal from "../components/UpdateUserModal";
 import DeletePetModal from "../components/DeletePetModal";
 import UpdatePasswordModal from "../components/UpdatePasswordModal";
 import AddPetModal from "../components/AddPetModal";
+import DeleteUserModal from "../components/DeleteUserModal"; // Importera DeleteUserModal
 import pets from '../assets/pets.jpeg';
 
 const ProfilePage = () => {
@@ -13,6 +14,7 @@ const ProfilePage = () => {
     const [isDeletePetModalOpen, setIsDeletePetModalOpen] = useState(false);
     const [isAddPetModalOpen, setIsAddPetModalOpen] = useState(false);
     const [isUpdatePetModalOpen, setIsUpdatePetModalOpen] = useState(false); // State for UpdatePetModal
+    const [isDeleteUserModalOpen, setIsDeleteUserModalOpen] = useState(false); // State for DeleteUserModal
 
     const openUpdateUserModal = () => setIsUpdateUserModalOpen(true);
     const closeUpdateUserModal = () => setIsUpdateUserModalOpen(false);
@@ -29,6 +31,9 @@ const ProfilePage = () => {
     const openUpdatePetModal = () => setIsUpdatePetModalOpen(true); // Function to open UpdatePetModal
     const closeUpdatePetModal = () => setIsUpdatePetModalOpen(false); // Function to close UpdatePetModal
 
+    const openDeleteUserModal = () => setIsDeleteUserModalOpen(true); // Function to open DeleteUserModal
+    const closeDeleteUserModal = () => setIsDeleteUserModalOpen(false); // Function to close DeleteUserModal
+
     return (
         <div style={styles.container}>
             <div style={styles.headerWrapper}>
@@ -43,6 +48,7 @@ const ProfilePage = () => {
                     <button style={styles.navButton} onClick={openAddPetModal}>Lägg till husdjur</button>
                     <button style={styles.navButton} onClick={openUpdatePetModal}>Uppdatera husdjur</button>
                     <button style={styles.navButton} onClick={openDeletePetModal}>Ta bort husdjur</button>
+                    <button style={styles.navButton} onClick={openDeleteUserModal}>Ta bort användare</button> {/* Knapp för DeleteUserModal */}
                 </div>
 
                 {/* Huvudinnehåll */}
@@ -56,6 +62,7 @@ const ProfilePage = () => {
                     <DeletePetModal isModalOpen={isDeletePetModalOpen} closeModal={closeDeletePetModal} />
                     <AddPetModal isModalOpen={isAddPetModalOpen} closeModal={closeAddPetModal} />
                     <UpdatePetModal isModalOpen={isUpdatePetModalOpen} closeModal={closeUpdatePetModal} /> {/* Added UpdatePetModal */}
+                    <DeleteUserModal show={isDeleteUserModalOpen} handleClose={closeDeleteUserModal} /> {/* Added DeleteUserModal */}
 
                     {/* Bild längst ner */}
                     <div style={styles.imageContainer}>
@@ -130,4 +137,3 @@ const styles = {
 };
 
 export default ProfilePage;
-
