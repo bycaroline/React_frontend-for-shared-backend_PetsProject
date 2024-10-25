@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import HeaderAuthenticated from "../components/HeaderAuthenticated";
-
+import UpdatePetModal from "../components/UpdatePetModal";
 import UpdateUserModal from "../components/UpdateUserModal";
 import DeletePetModal from "../components/DeletePetModal";
 import UpdatePasswordModal from "../components/UpdatePasswordModal";
 import AddPetModal from "../components/AddPetModal";
 import pets from '../assets/pets.jpeg';
 
-
 const ProfilePage = () => {
     const [isUpdateUserModalOpen, setIsUpdateUserModalOpen] = useState(false);
     const [isUpdatePasswordModalOpen, setIsUpdatePasswordModalOpen] = useState(false);
     const [isDeletePetModalOpen, setIsDeletePetModalOpen] = useState(false);
     const [isAddPetModalOpen, setIsAddPetModalOpen] = useState(false);
+    const [isUpdatePetModalOpen, setIsUpdatePetModalOpen] = useState(false); // State for UpdatePetModal
 
     const openUpdateUserModal = () => setIsUpdateUserModalOpen(true);
     const closeUpdateUserModal = () => setIsUpdateUserModalOpen(false);
@@ -25,6 +25,9 @@ const ProfilePage = () => {
 
     const openAddPetModal = () => setIsAddPetModalOpen(true);
     const closeAddPetModal = () => setIsAddPetModalOpen(false);
+
+    const openUpdatePetModal = () => setIsUpdatePetModalOpen(true); // Function to open UpdatePetModal
+    const closeUpdatePetModal = () => setIsUpdatePetModalOpen(false); // Function to close UpdatePetModal
 
     return (
         <div style={styles.container}>
@@ -39,53 +42,48 @@ const ProfilePage = () => {
                     <button style={styles.navButton} onClick={openUpdatePasswordModal}>Uppdatera lösenord</button>
                     <button style={styles.navButton} onClick={openDeletePetModal}>Ta bort husdjur</button>
                     <button style={styles.navButton} onClick={openAddPetModal}>Lägg till husdjur</button>
+                    <button style={styles.navButton} onClick={openUpdatePetModal}>Uppdatera husdjur</button> {/* Button for updating pet */}
                 </div>
 
                 {/* Huvudinnehåll */}
                 <div style={styles.mainContent}>
-                    <h2>Välkommen till din profil</h2>
-                    <p>I menyn till vänster kan du hantera din profil.</p>
+                    <h2 style={styles.title}>Välkommen till din profil</h2>
+                    <p style={styles.description}>I menyn till vänster kan du hantera dina inställningar och husdjur.</p>
 
                     {/* Modaler */}
                     <UpdateUserModal isModalOpen={isUpdateUserModalOpen} closeModal={closeUpdateUserModal} />
                     <UpdatePasswordModal isModalOpen={isUpdatePasswordModalOpen} closeModal={closeUpdatePasswordModal} />
                     <DeletePetModal isModalOpen={isDeletePetModalOpen} closeModal={closeDeletePetModal} />
                     <AddPetModal isModalOpen={isAddPetModalOpen} closeModal={closeAddPetModal} />
+                    <UpdatePetModal isModalOpen={isUpdatePetModalOpen} closeModal={closeUpdatePetModal} /> {/* Added UpdatePetModal */}
 
                     {/* Bild längst ner */}
                     <div style={styles.imageContainer}>
                         <img src={pets} alt="Våra husdjur" style={styles.image} />
                     </div>
                 </div>
-                <div style={styles.list}>
-                    <UpdatePetForm />
-                </div>
             </div>
         </div>
     );
 }
 
+// Stilar för komponenten
 const styles = {
     container: {
         display: 'flex',
         flexDirection: 'column',
         height: '100vh',
-        width: '100%',
     },
     headerWrapper: {
-        width: '100%',
-        backgroundColor: '#333',
-        padding: '10px 0',
+        // Om det behövs kan du lägga till stilar för header
     },
     contentWrapper: {
         display: 'flex',
         flex: 1,
-        width: '100%',
     },
     sidebar: {
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'flex-start',
         backgroundColor: '#0a0a0a',
         padding: '20px',
         width: '200px',
@@ -107,23 +105,29 @@ const styles = {
     mainContent: {
         flex: 1,
         padding: '40px',
+        textAlign: 'center',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'flex-start',
-        textAlign: 'center',
+        justifyContent: 'flex-start', // Justera innehållet till toppen
+    },
+    title: {
+        marginBottom: '20px', // Lägg till mellanrum under titeln
+    },
+    description: {
+        marginBottom: '40px', // Lägg till mellanrum under beskrivningen
     },
     imageContainer: {
-        marginTop: '40px', // Lägger till avstånd ovanför bilden
-        paddingBottom: '20px',
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
+        marginTop: '40px', // Lägg till mellanrum över bilden
+        textAlign: 'center',
     },
     image: {
-        maxWidth: '100%',
-        height: 'auto',
+        display: 'block',
+        margin: 'auto',
+        width: '80%', // Justera storlek på bilden om så önskas
+        maxWidth: '600px', // Max bredd för bilden
     },
 };
 
 export default ProfilePage;
+
