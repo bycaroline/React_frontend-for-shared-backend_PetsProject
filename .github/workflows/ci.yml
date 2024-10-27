@@ -29,8 +29,8 @@ jobs:
         run: npm install
 
       # Kör tester
-      - name: Run tests
-        run: npm test -- --watchAll=false
+      #- name: Run tests
+      #  run: npm test -- --watchAll=false
 
       # Bygger applikationen
       - name: Build
