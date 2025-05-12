@@ -1,4 +1,4 @@
-Project Overview
+# Project Overview
 
 This repository contains the frontend application built in React as part of a school project. Our team was responsible for developing the user interface that connects to another group's backend API, which provides access to a catalog of pets and users.
 
