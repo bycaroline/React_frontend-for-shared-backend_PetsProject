@@ -4,9 +4,9 @@ This repository contains the frontend application built in React as part of a sc
 
 The backend (developed by a separate team) handles data storage and endpoints for:
 
-    🐾 Pet information (e.g. name, type, age)
+    🐾 Pet information (name, type, age)
 
-    👤 User profiles (e.g. registration, login, user details)
+    👤 User profiles (registration, login, user details)
 
 Our frontend fetches, displays, and interacts with this data, allowing users to:
 
@@ -16,7 +16,7 @@ Our frontend fetches, displays, and interacts with this data, allowing users to:
 
     Access their profiles
 
-    And more (depending on project scope)
+    CRUD operations on their pets
 
 # Group members
 
